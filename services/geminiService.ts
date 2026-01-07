@@ -2,7 +2,8 @@
 import { GoogleGenAI } from "@google/genai";
 import { CanvasDrop, MusicParams, COLOR_LABEL_MAP } from "../types";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || '' });
+// 注意：變數名稱前面加了 VITE_，寫法改成 import.meta.env
+const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_API_KEY || '' });
 
 export const generateMusicDirection = async (drops: CanvasDrop[], params: MusicParams) => {
   if (drops.length === 0) return "請先在魔法瓶中加入一些情緒精靈喔！";
